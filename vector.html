@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VECTOR — CCNY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    :root{
+      --blue:#1a73e8;
+      --blue-dark:#1557b0;
+      --blue-light:#e8f0fe;
+      --red:#ea4335;
+      --yellow:#fbbc04;
+      --green:#34a853;
+      --green-light:#e6f4ea;
+      --surface:#fff;
+      --bg:#f8f9fa;
+      --nav:#202124;
+      --text:#202124;
+      --text-2:#3c4043;
+      --text-3:#5f6368;
+      --border:#dadce0;
+    }
+    body{font-family:'DM Sans',sans-serif;background:var(--surface);color:var(--text);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:200;background:var(--nav);height:64px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--blue) 0%,#4285f4 100%);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff}
+    .logo-text{font-size:16px;font-weight:600;color:#fff;letter-spacing:.02em}
+    .nav-links{display:flex;align-items:center;gap:.2rem;list-style:none}
+    .nav-links a{font-size:14px;color:#9aa0a6;text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .15s,background .15s;font-weight:500}
+    .nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)}
+    .nav-cta{background:var(--blue)!important;color:#fff!important;border-radius:24px!important;padding:8px 20px!important;font-weight:600!important}
+    .nav-cta:hover{background:var(--blue-dark)!important}
+    @media(max-width:720px){.nav-links{display:none}}
+
+    /* HERO */
+    .hero{padding:6rem 2rem 5.5rem;background:var(--nav);position:relative;overflow:hidden;text-align:center}
+    .hero-glow{position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:860px;height:560px;background:radial-gradient(ellipse,rgba(26,115,232,.2) 0%,transparent 68%);pointer-events:none}
+    .hero-inner{max-width:700px;margin:0 auto;position:relative;z-index:2}
+    .hero-code{display:inline-block;font-family:'Roboto Mono',monospace;font-size:12px;color:#5f6368;background:#2d2e31;border:1px solid #3c4043;border-radius:6px;padding:8px 18px;margin-bottom:2.25rem;letter-spacing:.03em;line-height:1.6}
+    .hero-code em{color:#4285f4;font-style:normal}
+    .hero h1{font-family:'DM Sans',sans-serif;font-size:clamp(2.6rem,5.5vw,3.8rem);font-weight:700;line-height:1.08;letter-spacing:-.025em;color:#fff;margin-bottom:1.2rem}
+    .g-b{color:#4285f4}.g-r{color:#ea4335}.g-y{color:#fbbc04}.g-g{color:#34a853}
+    .hero-sub{font-size:1.08rem;color:#9aa0a6;max-width:500px;margin:0 auto 2.5rem;line-height:1.8;font-weight:300}
+    .hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
+    .btn{display:inline-block;padding:12px 28px;border-radius:24px;font-size:15px;font-weight:600;text-decoration:none;transition:all .15s;font-family:'DM Sans',sans-serif;cursor:pointer;border:none}
+    .btn-blue{background:var(--blue);color:#fff}
+    .btn-blue:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(26,115,232,.35)}
+    .btn-outline{background:transparent;border:1px solid #3c4043;color:#e8eaed}
+    .btn-outline:hover{background:rgba(255,255,255,.06);border-color:#5f6368}
+    .hero-tags{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+    .htag{background:rgba(255,255,255,.05);border:1px solid #3c4043;border-radius:100px;padding:5px 14px;font-size:13px;color:#9aa0a6;font-weight:500}
+    .htag b{color:#e8eaed;font-weight:600}
+
+    /* SHARED */
+    .wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+    .section{padding:5rem 0;background:var(--surface)}
+    .section.bg{background:var(--bg)}
+    .eyebrow{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:.75rem}
+    .ey-b{color:var(--blue)}.ey-r{color:var(--red)}.ey-g{color:var(--green)}.ey-y{color:#f29900}
+    h2.h2{font-family:'DM Sans',sans-serif;font-size:clamp(1.75rem,3.2vw,2.4rem);font-weight:700;letter-spacing:-.025em;line-height:1.15;margin-bottom:.9rem}
+    .lead{font-size:1rem;color:var(--text-3);max-width:580px;line-height:1.8;margin-bottom:2.5rem}
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+    .reveal.in{opacity:1;transform:none}
+
+    /* ABOUT GRID */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    @media(max-width:600px){.about-grid{grid-template-columns:1fr}}
+    .acell{padding:1.75rem 2rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background .2s}
+    .acell:nth-child(2n){border-right:none}
+    .acell:nth-last-child(-n+2){border-bottom:none}
+    @media(max-width:600px){.acell{border-right:none}.acell:nth-last-child(-n+2){border-bottom:1px solid var(--border)}.acell:last-child{border-bottom:none}}
+    .acell:hover{background:var(--bg)}
+    .acell.dark{background:var(--nav);grid-column:span 2;border-right:none}
+    .acell.dark:hover{background:#2a2b2e}
+    @media(max-width:600px){.acell.dark{grid-column:span 1}}
+    .acell h3{font-size:.93rem;font-weight:600;margin-bottom:.35rem}
+    .acell p{font-size:.86rem;color:var(--text-3);line-height:1.75}
+    .acell.dark h3{color:#fff}.acell.dark p{color:#9aa0a6}
+    .dark-inner{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem}
+    .dark-quote{font-size:1.1rem;font-weight:600;color:#fff;line-height:1.55;max-width:520px}
+    .dark-quote span{color:#4285f4}
+    .dark-attr{font-size:.78rem;color:#5f6368;margin-top:.4rem}
+    .dark-stat{text-align:right;flex-shrink:0}
+    .ds-num{font-size:2.1rem;font-weight:700;color:#4285f4;line-height:1;letter-spacing:-.03em}
+    .ds-lab{font-size:.76rem;color:#9aa0a6;margin-top:3px}
+    .ci{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:.75rem}
+    .ci-b{background:var(--blue-light)}.ci-g{background:var(--green-light)}.ci-r{background:#fce8e6}.ci-y{background:#fef7e0}
+
+    /* TABS */
+    .tabs-wrap{border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .tab-bar{display:flex;background:var(--bg);border-bottom:1px solid var(--border);overflow-x:auto}
+    .tab-bar::-webkit-scrollbar{display:none}
+    .tab-btn{flex-shrink:0;padding:.85rem 1.25rem;font-size:13.5px;font-weight:600;color:var(--text-3);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s;font-family:'DM Sans',sans-serif;white-space:nowrap}
+    .tab-btn.on{color:var(--blue);border-bottom-color:var(--blue)}
+    .tab-btn:hover:not(.on){color:var(--text)}
+    .tab-panel{display:none;padding:1.75rem;grid-template-columns:1fr 1fr;gap:1rem}
+    .tab-panel.on{display:grid}
+    @media(max-width:560px){.tab-panel.on{grid-template-columns:1fr}}
+    .pcard{border:1px solid var(--border);border-radius:12px;padding:1.25rem;transition:border-color .2s,box-shadow .2s}
+    .pcard:hover{border-color:var(--blue);box-shadow:0 2px 12px rgba(26,115,232,.1)}
+    .pmeta{font-family:'Roboto Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:.08em;margin-bottom:.4rem;text-transform:uppercase}
+    .pcard h3{font-size:.92rem;font-weight:600;margin-bottom:.3rem}
+    .pcard p{font-size:.82rem;color:var(--text-3);line-height:1.65;margin-bottom:.7rem}
+    .ptag{display:inline-block;background:var(--green-light);color:#137333;font-family:'Roboto Mono',monospace;font-size:11px;font-weight:500;padding:3px 10px;border-radius:100px}
+
+    /* PIPELINE / OPERATING LOOP */
+    .pipeline{margin-top:2.5rem}
+    .pipe-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-bottom:0}
+    @media(max-width:640px){.pipe-steps{grid-template-columns:1fr;gap:1px;background:var(--border);border-radius:12px;overflow:hidden}}
+    .pipe-bar{height:4px;background:var(--border);border-radius:2px;margin-bottom:2rem;overflow:hidden;position:relative}
+    .pipe-bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--green));border-radius:2px;transition:width .8s ease}
+    .pipe-bar-fill.animate{width:100%}
+    @media(max-width:640px){.pipe-bar{display:none}}
+    .pstep{padding:1.25rem;border:1px solid var(--border);border-right:none;background:var(--surface);transition:background .2s}
+    .pstep:first-child{border-radius:12px 0 0 12px}
+    .pstep:last-child{border-right:1px solid var(--border);border-radius:0 12px 12px 0}
+    .pstep:hover{background:var(--bg)}
+    @media(max-width:640px){.pstep{border-radius:0!important;border:none;border-bottom:1px solid var(--border)}.pstep:last-child{border-bottom:none}}
+    .pstep-num{font-family:'Roboto Mono',monospace;font-size:11px;color:var(--text-3);margin-bottom:.5rem;letter-spacing:.06em}
+    .pstep h3{font-size:.88rem;font-weight:600;margin-bottom:.3rem;color:var(--text)}
+    .pstep p{font-size:.79rem;color:var(--text-3);line-height:1.65}
+
+    /* CALCULATOR */
+    .calc-card{border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .calc-body{display:grid;grid-template-columns:1fr 1fr}
+    @media(max-width:640px){.calc-body{grid-template-columns:1fr}}
+    .c-in{padding:2rem;border-right:1px solid var(--border)}
+    @media(max-width:640px){.c-in{border-right:none;border-bottom:1px solid var(--border)}}
+    .c-out{padding:2rem;background:var(--bg)}
+    .cl{display:block;font-size:11px;font-weight:600;color:var(--text-3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem}
+    .crow{margin-bottom:1.4rem}
+    input[type=range]{width:100%;accent-color:var(--blue);cursor:pointer;margin-top:4px}
+    .rv{font-family:'Roboto Mono',monospace;font-size:13px;font-weight:500;color:var(--blue);margin-top:5px;display:block}
+    .csel{width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:'DM Sans',sans-serif;color:var(--text);background:var(--surface);cursor:pointer}
+    .csel:focus{outline:2px solid var(--blue);outline-offset:1px}
+    .out-big{margin-bottom:1.4rem}
+    .out-big .ol{font-size:11px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+    .out-big .ov{font-size:2.2rem;font-weight:700;letter-spacing:-.03em}
+    .orow{display:flex;justify-content:space-between;padding:.55rem 0;border-top:1px solid var(--border);font-size:.87rem}
+    .ok{color:var(--text-3)}
+    .ovv{font-weight:600;font-family:'Roboto Mono',monospace;font-size:12.5px}
+    .warn{margin-top:.85rem;background:#fef7e0;border-left:3px solid var(--yellow);border-radius:0 8px 8px 0;padding:.7rem 1rem;font-size:.8rem;color:#594300;line-height:1.6}
+
+    /* FOR BUSINESSES */
+    .biz-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2.5rem}
+    @media(max-width:600px){.biz-grid{grid-template-columns:1fr}}
+    .bcard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color .2s,box-shadow .2s}
+    .bcard:hover{border-color:var(--blue);box-shadow:0 2px 12px rgba(26,115,232,.08)}
+    .bcard-label{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--blue);text-transform:uppercase;margin-bottom:.5rem;display:block}
+    .bcard h3{font-size:.98rem;font-weight:600;margin-bottom:.4rem}
+    .bcard p{font-size:.86rem;color:var(--text-3);line-height:1.75}
+    .bcard.featured{border-color:var(--blue);background:var(--blue-light);grid-column:span 2}
+    @media(max-width:600px){.bcard.featured{grid-column:span 1}}
+    .bcard.featured h3{color:var(--blue-dark)}
+    .bcard.featured p{color:#1557b0}
+    .biz-cta{margin-top:2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;background:var(--nav);border-radius:12px;padding:2rem}
+    .biz-cta-text h3{font-size:1rem;font-weight:600;color:#fff;margin-bottom:.25rem}
+    .biz-cta-text p{font-size:.88rem;color:#9aa0a6}
+    .btn-white{background:#fff;color:var(--blue);border-radius:24px;padding:10px 24px;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;transition:box-shadow .15s}
+    .btn-white:hover{box-shadow:0 4px 16px rgba(0,0,0,.25)}
+
+    /* STEPS */
+    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem}
+    @media(max-width:660px){.steps-grid{grid-template-columns:1fr}}
+    .scard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;position:relative;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+    .scard:hover{border-color:var(--blue);box-shadow:0 2px 12px rgba(26,115,232,.08)}
+    .scard-n{font-size:3.5rem;font-weight:700;color:#f1f3f4;position:absolute;top:-10px;right:12px;line-height:1;pointer-events:none;user-select:none;font-family:'DM Sans',sans-serif}
+    .scard h3{font-size:.93rem;font-weight:600;margin-bottom:.4rem;position:relative}
+    .scard p{font-size:.83rem;color:var(--text-3);line-height:1.7;position:relative}
+
+    /* CTA STRIP */
+    .cta-strip{background:var(--blue);border-radius:16px;padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;margin-top:2.5rem}
+    .cta-strip h3{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+    .cta-strip p{font-size:.88rem;color:rgba(255,255,255,.8)}
+
+    /* FAQ */
+    .faq{margin-top:1.5rem;display:flex;flex-direction:column;gap:.5rem}
+    .fitem{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface)}
+    .fq{width:100%;display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;background:none;border:none;cursor:pointer;font-size:.93rem;font-weight:600;font-family:'DM Sans',sans-serif;color:var(--text);text-align:left;gap:1rem;transition:background .15s}
+    .fq:hover{background:var(--bg)}
+    .ficon{width:24px;height:24px;border-radius:50%;background:var(--blue-light);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;transition:transform .25s,background .2s}
+    .fitem.open .ficon{transform:rotate(45deg);background:var(--blue);color:#fff}
+    .fa{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;font-size:.88rem;color:var(--text-3);line-height:1.8;padding:0 1.25rem}
+    .fitem.open .fa{max-height:240px;padding:.1rem 1.25rem 1rem}
+
+    /* RESOURCES */
+    .res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin-top:2rem}
+    .rcard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem;display:flex;gap:.85rem;align-items:flex-start;transition:border-color .2s,box-shadow .2s}
+    .rcard:hover{border-color:var(--blue);box-shadow:0 2px 12px rgba(26,115,232,.08)}
+    .rn{font-size:.9rem;font-weight:600;margin-bottom:.2rem}
+    .rd{font-size:.8rem;color:var(--text-3);line-height:1.55}
+    .rbadge{display:inline-block;margin-top:.45rem;font-family:'Roboto Mono',monospace;font-size:10px;padding:2px 9px;border-radius:100px;font-weight:500}
+    .rb-b{background:var(--blue-light);color:#1557b0}
+    .rb-g{background:var(--green-light);color:#137333}
+
+    /* FOOTER */
+    footer{background:var(--nav);padding:2.5rem 2rem}
+    .fi{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+    .fl{font-size:15px;font-weight:600;color:#fff;letter-spacing:.02em}
+    footer p{font-size:.8rem;color:#5f6368;line-height:1.7}
+    footer a{color:#5f6368;text-decoration:none;transition:color .15s}
+    footer a:hover{color:#9aa0a6}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-mark">V</div>
+    <span class="logo-text">VECTOR</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Projects</a></li>
+    <li><a href="#businesses">For Businesses</a></li>
+    <li><a href="#join">Students</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="mailto:vector@ccny.cuny.edu" class="nav-cta">Get Involved</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-code">
+      <em>"Computer science is no more about computers</em> than astronomy is about telescopes." — Dijkstra
+    </div>
+    <h1>Software that<br><span class="g-b">solves</span> <span class="g-r">real</span> <span class="g-y">problems</span><span class="g-g">.</span></h1>
+    <p class="hero-sub">A student-led technical organization at The City College of New York. We build software for NYC businesses, nonprofits, and community organizations — and teach students how to do it professionally.</p>
+    <div class="hero-btns">
+      <a href="#businesses" class="btn btn-blue">Work with us</a>
+      <a href="#join" class="btn btn-outline">Join as a student</a>
+    </div>
+    <div class="hero-tags">
+      <span class="htag"><b>City College of New York</b></span>
+      <span class="htag"><b>All majors</b> welcome</span>
+      <span class="htag">Advised by <b>Prof. Grossberg</b> & <b>Prof. Brass</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="wrap">
+    <span class="eyebrow ey-b reveal">What is VECTOR</span>
+    <h2 class="h2 reveal">Not a startup club. A build environment.</h2>
+    <p class="lead reveal">VECTOR connects CCNY students with real clients who have real technical problems. Teams scope the project, build the software, and deliver something that works — developing professional habits that coursework alone can't teach.</p>
+
+    <div class="about-grid reveal">
+      <div class="acell dark">
+        <div class="dark-inner">
+          <div>
+            <div class="dark-quote">"Your knowledge gap is your <span>money maker.</span> An NYC restaurant owner knows food, not Python. You know Python — and that gap is precisely what they'll pay you to close."</div>
+            <div class="dark-attr">The insight behind VECTOR's approach to client work</div>
+          </div>
+          <div class="dark-stat">
+            <div class="ds-num">200K+</div>
+            <div class="ds-lab">NYC small businesses</div>
+            <div class="ds-lab">with no in-house tech</div>
+          </div>
+        </div>
+      </div>
+      <div class="acell">
+        <div class="ci ci-b">⚙</div>
+        <h3>Client-oriented projects</h3>
+        <p>Teams build websites, dashboards, automations, and AI tools for businesses that actually need them — not hypothetical case studies.</p>
+      </div>
+      <div class="acell">
+        <div class="ci ci-g">◈</div>
+        <h3>Learning by building</h3>
+        <p>Coursework teaches concepts. VECTOR teaches you how to scope work, communicate with a client, and ship software on a real deadline with real stakes.</p>
+      </div>
+      <div class="acell">
+        <div class="ci ci-y">◇</div>
+        <h3>Every major has a role</h3>
+        <p>CS students lead technical execution. Business, design, architecture, and other students handle client relationships, product thinking, and strategy.</p>
+      </div>
+      <div class="acell">
+        <div class="ci ci-r">◉</div>
+        <h3>NYC is the classroom</h3>
+        <p>Five boroughs. 200K+ small businesses. Most have no developer on staff and no budget for an agency — that's the gap VECTOR exists to fill.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE WORK (TABS) -->
+<section class="section bg" id="work">
+  <div class="wrap">
+    <span class="eyebrow ey-g reveal">The Work</span>
+    <h2 class="h2 reveal">What VECTOR teams build</h2>
+    <p class="lead reveal">Projects are scoped for part-time student schedules. Each one ends with a working deliverable the client actually uses — and a portfolio piece the student can point to.</p>
+
+    <div class="tabs-wrap reveal">
+      <div class="tab-bar">
+        <button class="tab-btn on" data-tab="web">Web & Presence</button>
+        <button class="tab-btn" data-tab="data">Data & AI</button>
+        <button class="tab-btn" data-tab="ops">Ops & Automation</button>
+      </div>
+      <div class="tab-panel on" id="tab-web">
+        <div class="pcard">
+          <div class="pmeta">2–3 weeks</div>
+          <h3>Business Website</h3>
+          <p>A clean, mobile-ready site with contact form, basic SEO, and a layout the client can manage themselves.</p>
+          <span class="ptag">$1,500–$3,000</span>
+        </div>
+        <div class="pcard">
+          <div class="pmeta">2–4 weeks</div>
+          <h3>E-Commerce Store</h3>
+          <p>Shopify setup with products, payment, and automations for a local retailer ready to sell online.</p>
+          <span class="ptag">$1,500–$2,500</span>
+        </div>
+        <div class="pcard">
+          <div class="pmeta">1–2 weeks</div>
+          <h3>Online Booking System</h3>
+          <p>Scheduling for salons, studios, or clinics — calendar integration, confirmations, no phone tag.</p>
+          <span class="ptag">$800–$1,500</span>
+        </div>
+        <div class="pcard">
+          <div class="pmeta">1–2 weeks</div>
+          <h3>Email Marketing Setup</h3>
+          <p>Branded Mailchimp or Klaviyo templates, a welcome sequence, and a list that grows automatically.</p>
+          <span class="ptag">$500–$1,200</span>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-data">
+        <div class="pcard">
+          <div class="pmeta">2–3 weeks</div>
+          <h3>Business Dashboard</h3>
+          <p>Turn a client's spreadsheets into a live visual dashboard — sales, inventory, or key metrics at a glance.</p>
+          <span class="ptag">$1,200–$2,500</span>
+        </div>
+        <div class="pcard">
+          <div class="pmeta">2–4 weeks</div>
+          <h3>AI Customer Chatbot</h3>
+          <p>An OpenAI-powered assistant embedded on a website to handle FAQs, bookings, and product questions 24/7.</p>
+          <span class="ptag">$1,500–$3,000</span>
+        </div>
+        <div class="pcard">
+          <div class="pmeta">3–5 weeks</div>
+          <h3>Internal Admin Tool</h3>
+          <p>A custom staff portal or CRM — built with Retool, AppSmith, or a lightweight Flask + React app.</p>
+          <span class="ptag">$2,000–$4,000</span>
+        </div>
+        <div class="pcard">
+          <div class="pmeta">2–3 weeks</div>
+          <h3>Automated Reporting</h3>
+          <p>Weekly or monthly reports that write themselves — delivered to a client's inbox without manual work.</p>
+          <span class="ptag">$1,000–$2,000</span>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-ops">
+        <div class="pcard">
+          <div class="pmeta">1–3 weeks</div>
+          <h3>Inventory Automation</h3>
+          <p>Connect Airtable or Notion to Zapier or Make — no more manual spreadsheet updates or data entry.</p>
+          <span class="ptag">$1,000–$2,500</span>
+        </div>
+        <div class="pcard">
+          <div class="pmeta">1–2 weeks</div>
+          <h3>Workflow Digitization</h3>
+          <p>Replace paper forms and email chains with structured digital workflows — forms, approvals, notifications.</p>
+          <span class="ptag">$800–$1,500</span>
+        </div>
+        <div class="pcard">
+          <div class="pmeta">2–4 weeks</div>
+          <h3>Document Automation</h3>
+          <p>Auto-generate contracts, invoices, or intake packets from templates. A major time-saver for service businesses.</p>
+          <span class="ptag">$1,200–$2,500</span>
+        </div>
+        <div class="pcard">
+          <div class="pmeta">Ongoing</div>
+          <h3>Maintenance Retainer</h3>
+          <p>Monthly technical support for past clients — updates, bug fixes, small feature additions.</p>
+          <span class="ptag">$400–$800/mo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPERATING LOOP -->
+<section class="section" id="loop">
+  <div class="wrap">
+    <span class="eyebrow ey-b reveal">How a project moves</span>
+    <h2 class="h2 reveal">From problem to portfolio artifact</h2>
+    <p class="lead reveal">Every VECTOR project follows the same arc. The goal is not just to ship software — it's to leave behind documentation, reflection, and proof of work that both the client and student can point to.</p>
+
+    <div class="pipeline reveal">
+      <div class="pipe-bar"><div class="pipe-bar-fill" id="pipe-fill"></div></div>
+      <div class="pipe-steps">
+        <div class="pstep">
+          <div class="pstep-num">01</div>
+          <h3>Problem intake</h3>
+          <p>Find a real operational pain point from a business, club, or local initiative.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">02</div>
+          <h3>Scope sprint</h3>
+          <p>Define the smallest useful version and clarify exactly what is out of scope.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">03</div>
+          <h3>Build team</h3>
+          <p>Match students across engineering, design, product, and client communication.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">04</div>
+          <h3>Validate</h3>
+          <p>Test the workflow with users, fix gaps, and verify it solves the stated problem.</p>
+        </div>
+        <div class="pstep">
+          <div class="pstep-num">05</div>
+          <h3>Artifact</h3>
+          <p>Turn the finished work into a case study, demo, and GitHub repo — documented and owned.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR BUSINESSES -->
+<section class="section bg" id="businesses">
+  <div class="wrap">
+    <span class="eyebrow ey-r reveal">For Businesses</span>
+    <h2 class="h2 reveal">What working with VECTOR looks like</h2>
+    <p class="lead reveal">VECTOR teams build focused, well-scoped software for NYC businesses and organizations. If you have a process that should be automated, data that should be visible, or a digital presence that doesn't exist yet — let's talk.</p>
+
+    <div class="biz-grid reveal">
+      <div class="bcard featured">
+        <span class="bcard-label">The value proposition</span>
+        <h3>Serious technical talent at a fraction of agency cost</h3>
+        <p>VECTOR teams are CCNY students advised by faculty with industry experience. You get a clearly scoped project, a dedicated point of contact, and a finished deliverable — not a running hourly tab.</p>
+      </div>
+      <div class="bcard">
+        <span class="bcard-label">Transparent scope</span>
+        <h3>You know exactly what you're getting</h3>
+        <p>Every project starts with a written scope document — deliverables, timeline, what's included, and what isn't. No surprises, no scope creep, no ambiguity.</p>
+      </div>
+      <div class="bcard">
+        <span class="bcard-label">Local and accountable</span>
+        <h3>A team in your city, not a contractor overseas</h3>
+        <p>VECTOR teams are based in New York City. They understand the market, can meet in person, and are invested in the outcome because it goes in their portfolio.</p>
+      </div>
+      <div class="bcard">
+        <span class="bcard-label">What we build</span>
+        <h3>Websites, dashboards, automations, AI tools</h3>
+        <p>If your business has a manual process that could be automated, a spreadsheet that should be a dashboard, or needs an online presence — that's in our wheelhouse.</p>
+      </div>
+      <div class="bcard">
+        <span class="bcard-label">Ongoing support</span>
+        <h3>We don't just hand it off and disappear</h3>
+        <p>Clients can stay on a monthly maintenance retainer for updates, fixes, and small additions — so the software stays useful long after launch.</p>
+      </div>
+    </div>
+
+    <div class="biz-cta reveal">
+      <div class="biz-cta-text">
+        <h3>Have a project in mind?</h3>
+        <p>Reach out and tell us what you're trying to solve. We'll scope it and get back to you within a few days.</p>
+      </div>
+      <a href="mailto:vector@ccny.cuny.edu" class="btn-white">Start a conversation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- EARNINGS CALCULATOR -->
+<section class="section" id="calculator">
+  <div class="wrap">
+    <span class="eyebrow ey-g reveal">Earnings Calculator</span>
+    <h2 class="h2 reveal">What could a student team earn?</h2>
+    <p class="lead reveal">This is a practical model for understanding pricing. VECTOR members work on projects part-time, around class — typically 10–20 hours per week per project.</p>
+
+    <div class="calc-card reveal">
+      <div class="calc-body">
+        <div class="c-in">
+          <div class="crow">
+            <span class="cl">Projects per semester</span>
+            <input type="range" min="1" max="6" value="3" id="proj-count" step="1">
+            <span class="rv" id="proj-count-val">3 projects</span>
+          </div>
+          <div class="crow">
+            <span class="cl">Average project value</span>
+            <select class="csel" id="proj-rate">
+              <option value="1000">Entry — ~$1,000</option>
+              <option value="1750" selected>Standard — ~$1,750</option>
+              <option value="2500">Experienced — ~$2,500</option>
+              <option value="3500">Premium scope — ~$3,500</option>
+            </select>
+          </div>
+          <div class="crow">
+            <span class="cl">Retainer clients</span>
+            <input type="range" min="0" max="3" value="0" id="ret-count" step="1">
+            <span class="rv" id="ret-count-val">None</span>
+          </div>
+          <div class="crow">
+            <span class="cl">Retainer rate / month</span>
+            <input type="range" min="300" max="1000" value="500" id="ret-rate" step="50">
+            <span class="rv" id="ret-rate-val">$500/mo</span>
+          </div>
+        </div>
+        <div class="c-out">
+          <div class="out-big">
+            <div class="ol">Semester gross</div>
+            <div class="ov" id="out-gross">$5,250</div>
+          </div>
+          <div class="orow"><span class="ok">Annualized (2 semesters)</span><span class="ovv" id="out-annual">$10,500</span></div>
+          <div class="orow"><span class="ok">Take-home after ~38% NYC tax</span><span class="ovv" id="out-take">$6,510</span></div>
+          <div class="orow"><span class="ok">Set aside for taxes</span><span class="ovv" id="out-tax" style="color:var(--yellow)">$3,990</span></div>
+          <div class="warn">NYC freelancers pay roughly 35–50% combined tax (self-employment + federal + state + city). Set aside 38% of every payment the day it arrives.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="section bg" id="join">
+  <div class="wrap">
+    <span class="eyebrow ey-g reveal">For Students</span>
+    <h2 class="h2 reveal">How joining works</h2>
+    <p class="lead reveal">Open to all CCNY students. There's no experience requirement — just a willingness to work on something real and see it through.</p>
+
+    <div class="steps-grid">
+      <div class="scard reveal" style="transition-delay:.04s">
+        <div class="scard-n">01</div>
+        <h3>Come to a meeting</h3>
+        <p>See what's currently being built, meet the team, and find out what roles are open.</p>
+      </div>
+      <div class="scard reveal" style="transition-delay:.09s">
+        <div class="scard-n">02</div>
+        <h3>Find your role</h3>
+        <p>Developer, designer, business analyst, or client liaison — every project team has room for different skills and majors.</p>
+      </div>
+      <div class="scard reveal" style="transition-delay:.14s">
+        <div class="scard-n">03</div>
+        <h3>Deliver something real</h3>
+        <p>Work a live project, ship the deliverable, document your work, and walk away with a concrete portfolio piece.</p>
+      </div>
+    </div>
+
+    <div class="cta-strip reveal">
+      <div>
+        <h3>Ready to build with us?</h3>
+        <p>Reach out and we'll connect you with the right team and project.</p>
+      </div>
+      <a href="mailto:vector@ccny.cuny.edu" class="btn btn-white" style="background:#fff;color:var(--blue);border-radius:24px;padding:11px 26px;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0">Contact VECTOR →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <span class="eyebrow ey-r reveal">FAQ</span>
+    <h2 class="h2 reveal">Questions we hear often</h2>
+    <div class="faq reveal">
+      <div class="fitem">
+        <button class="fq">Do I need prior experience to join?<span class="ficon">+</span></button>
+        <div class="fa">No. VECTOR is designed to be where you gain that experience. You'll work on a team — not solo — so your skills develop through the project itself.</div>
+      </div>
+      <div class="fitem">
+        <button class="fq">Is this only for CS or engineering students?<span class="ficon">+</span></button>
+        <div class="fa">Not at all. Business, design, architecture, pre-med, humanities — every major has a legitimate role. Non-technical students often identify the best problems, manage client relationships, and drive product decisions that technical students miss.</div>
+      </div>
+      <div class="fitem">
+        <button class="fq">Will I get paid for my work?<span class="ficon">+</span></button>
+        <div class="fa">Client projects generate real revenue. The goal is always that students are compensated for their time — not handed "experience" as currency. Exact structure depends on the project and team agreement.</div>
+      </div>
+      <div class="fitem">
+        <button class="fq">How much time does it take per week?<span class="ficon">+</span></button>
+        <div class="fa">Typically 10–15 hours per week during an active project. Projects run 2–5 weeks. You take on more or less depending on your semester load.</div>
+      </div>
+      <div class="fitem">
+        <button class="fq">How is VECTOR different from the Zahn Center?<span class="ficon">+</span></button>
+        <div class="fa">The Zahn Center is focused on entrepreneurship and startup ideas. VECTOR is focused on execution — building real software for clients under professional conditions. They're complementary. Students who develop strong technical instincts through VECTOR are better positioned to pursue startup ideas at Zahn later on.</div>
+      </div>
+      <div class="fitem">
+        <button class="fq">As a business, what's the engagement process?<span class="ficon">+</span></button>
+        <div class="fa">Reach out with a description of the problem you're trying to solve. We'll follow up to scope the project — what gets built, what's out of scope, timeline, and cost. Once both sides agree on scope, we assemble a team and begin the build cycle. You'll have a point of contact throughout.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="section bg">
+  <div class="wrap">
+    <span class="eyebrow ey-y reveal">Resources</span>
+    <h2 class="h2 reveal">Useful for CCNY students</h2>
+    <div class="res-grid reveal">
+      <div class="rcard">
+        <div>
+          <div class="rn">CCNY Zahn Innovation Center</div>
+          <div class="rd">Entrepreneurship workshops, mentorship, and NYC startup ecosystem connections.</div>
+          <span class="rbadge rb-b">CCNY</span>
+        </div>
+      </div>
+      <div class="rcard">
+        <div>
+          <div class="rn">CCNY / MIT AI Certificate</div>
+          <div class="rd">AI + entrepreneurship credential with MIT Sloan mentors. Free for enrolled CCNY students.</div>
+          <span class="rbadge rb-b">CCNY + MIT · Free</span>
+        </div>
+      </div>
+      <div class="rcard">
+        <div>
+          <div class="rn">Freelancers Union</div>
+          <div class="rd">Contracts, tax guides, health insurance resources, and legal clinics for NYC independent workers.</div>
+          <span class="rbadge rb-g">Free — freelancersunion.org</span>
+        </div>
+      </div>
+      <div class="rcard">
+        <div>
+          <div class="rn">NY Freelance Contract (DOL)</div>
+          <div class="rd">State-issued model contract required for any paid engagement over $800 in New York.</div>
+          <span class="rbadge rb-g">Free — dol.ny.gov</span>
+        </div>
+      </div>
+      <div class="rcard">
+        <div>
+          <div class="rn">Freelancers Hub, Brooklyn</div>
+          <div class="rd">Free coworking, workshops, and legal clinics at Industry City — run by Freelancers Union and NYC.</div>
+          <span class="rbadge rb-g">Free · Industry City</span>
+        </div>
+      </div>
+      <div class="rcard">
+        <div>
+          <div class="rn">GarysGuide</div>
+          <div class="rd">NYC's best tech event aggregator — meetups, hackathons, product and startup events.</div>
+          <span class="rbadge rb-g">garysguide.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fi">
+    <div>
+      <div class="fl">VECTOR — CCNY</div>
+      <p style="margin-top:.3rem">The City College of New York · Student-Led Technical Organization</p>
+    </div>
+    <p style="text-align:right">Advised by <a href="#">Prof. Michael Grossberg</a> & <a href="#">Prof. Peter Brass</a><br>Supported by the Dean of Engineering, CCNY</p>
+  </div>
+</footer>
+
+<script>
+  // TABS
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const t = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('on'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('on'));
+      btn.classList.add('on');
+      document.getElementById('tab-' + t).classList.add('on');
+    });
+  });
+
+  // PIPELINE FILL on scroll
+  const fill = document.getElementById('pipe-fill');
+  if (fill) {
+    const obs2 = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { fill.classList.add('animate'); obs2.unobserve(e.target); }});
+    }, { threshold: 0.3 });
+    obs2.observe(fill.parentElement);
+  }
+
+  // CALCULATOR
+  const fmt = n => '$' + Math.round(n).toLocaleString();
+  function calc() {
+    const p = +document.getElementById('proj-count').value;
+    const r = +document.getElementById('proj-rate').value;
+    const rc = +document.getElementById('ret-count').value;
+    const rr = +document.getElementById('ret-rate').value;
+    document.getElementById('proj-count-val').textContent = p + ' project' + (p === 1 ? '' : 's');
+    document.getElementById('ret-count-val').textContent = rc === 0 ? 'None' : rc + ' client' + (rc === 1 ? '' : 's');
+    document.getElementById('ret-rate-val').textContent = '$' + rr + '/mo';
+    const gross = (p * r) + (rc * rr * 3.75);
+    document.getElementById('out-gross').textContent = fmt(gross);
+    document.getElementById('out-annual').textContent = fmt(gross * 2);
+    document.getElementById('out-take').textContent = fmt(gross * 0.62);
+    document.getElementById('out-tax').textContent = fmt(gross * 0.38);
+  }
+  ['proj-count','ret-count','ret-rate'].forEach(id => document.getElementById(id).addEventListener('input', calc));
+  document.getElementById('proj-rate').addEventListener('change', calc);
+  calc();
+
+  // FAQ
+  document.querySelectorAll('.fq').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.fitem');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.fitem').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // SCROLL REVEAL
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }});
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
