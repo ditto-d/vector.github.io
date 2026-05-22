@@ -31,20 +31,25 @@
     }
     body{font-family:'DM Sans',sans-serif;background:var(--surface);color:var(--text);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 
-    /* ── NAV ── */
+    /* NAV */
     nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.88);height:64px;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);backdrop-filter:blur(16px)}
     .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
     .logo-mark{width:32px;height:32px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;font-family:'Roboto Mono',monospace}
     .logo-text{font-size:16px;font-weight:600;color:var(--text);letter-spacing:.04em;font-family:'Roboto Mono',monospace}
+    .nav-right{display:flex;align-items:center;gap:.5rem}
     .nav-links{display:flex;align-items:center;gap:.2rem;list-style:none}
     .nav-links a{font-size:14px;color:var(--text-3);text-decoration:none;padding:6px 12px;border-radius:4px;transition:color .15s,background .15s;font-weight:500}
     .nav-links a:hover{color:var(--text);background:var(--bg)}
-    .nav-cta{background:var(--accent)!important;color:#fff!important;border-radius:24px!important;padding:8px 20px!important;font-weight:600!important}
-    .nav-cta:hover{background:var(--accent-dark)!important}
+    .nav-socials{display:flex;align-items:center;gap:.1rem}
+    .nav-social{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;color:var(--text-3);text-decoration:none;transition:color .15s,background .15s}
+    .nav-social:hover{color:var(--text);background:var(--bg)}
+    .nav-social svg{width:17px;height:17px;fill:currentColor}
+    .nav-cta{background:var(--accent);color:#fff;border-radius:24px;padding:8px 20px;font-weight:600;font-size:14px;text-decoration:none;transition:background .15s;white-space:nowrap}
+    .nav-cta:hover{background:var(--accent-dark)}
     @media(max-width:720px){.nav-links{display:none}}
     @media(max-width:720px){.hero-selector{grid-template-columns:1fr}.hero-selector button{min-height:auto}.hero{padding:4.75rem 1.25rem 4rem}}
 
-    /* ── HERO ── */
+    /* HERO */
     .hero{padding:6.5rem 2rem 5.75rem;background:radial-gradient(circle at 16% 18%,rgba(66,133,244,.14),transparent 26%),radial-gradient(circle at 84% 24%,rgba(251,188,4,.16),transparent 25%),radial-gradient(circle at 50% 92%,rgba(52,168,83,.12),transparent 24%),linear-gradient(180deg,#fff 0%,#f8fafd 100%);position:relative;overflow:hidden;text-align:center}
     .hero-glow{position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:980px;height:620px;background:radial-gradient(ellipse,rgba(26,115,232,.1) 0%,transparent 66%);pointer-events:none}
     .hero-inner{max-width:720px;margin:0 auto;position:relative;z-index:2}
@@ -67,7 +72,7 @@
     .hero-insight{max-width:640px;margin:0 auto;padding:14px 18px;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.8);color:var(--text-3);box-shadow:0 14px 40px rgba(60,64,67,.07)}
     .hero-insight strong{color:var(--text-2);font-weight:600}
 
-    /* ── SHARED ── */
+    /* SHARED */
     .wrap{max-width:960px;margin:0 auto;padding:0 2rem}
     .section{padding:5rem 0;background:var(--surface)}
     .section.bg{background:var(--bg)}
@@ -78,7 +83,7 @@
     .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
     .reveal.in{opacity:1;transform:none}
 
-    /* ── ABOUT GRID ── */
+    /* ABOUT GRID */
     .about-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:16px;overflow:hidden}
     @media(max-width:600px){.about-grid{grid-template-columns:1fr}}
     .acell{padding:1.75rem 2rem;border-right:1px solid var(--border);border-bottom:1px solid var(--border);transition:background .2s,transform .2s}
@@ -102,7 +107,7 @@
     .ci{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:.75rem}
     .ci-a{background:var(--accent-light)}.ci-t{background:var(--teal-light)}.ci-m{background:var(--amber-light)}
 
-    /* ── TABS ── */
+    /* TABS */
     .tabs-wrap{border:1px solid var(--border);border-radius:16px;overflow:hidden}
     .tab-bar{display:flex;background:var(--bg);border-bottom:1px solid var(--border);overflow-x:auto}
     .tab-bar::-webkit-scrollbar{display:none}
@@ -118,7 +123,7 @@
     .pcard h3{font-size:.92rem;font-weight:600;margin-bottom:.3rem}
     .pcard p{font-size:.82rem;color:var(--text-3);line-height:1.65}
 
-    /* ── PIPELINE ── */
+    /* PIPELINE */
     .pipeline{margin-top:2.5rem}
     .pipe-bar{height:4px;background:var(--border);border-radius:2px;margin-bottom:2rem;overflow:hidden}
     .pipe-bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--teal));border-radius:2px;transition:width .9s ease}
@@ -136,7 +141,7 @@
     .pstep h3{font-size:.88rem;font-weight:600;margin-bottom:.3rem}
     .pstep p{font-size:.79rem;color:var(--text-3);line-height:1.65}
 
-    /* ── INDUSTRIES (clickable) ── */
+    /* INDUSTRIES */
     .ind-intro{margin:3rem 0 1.25rem;font-size:.92rem;color:var(--text-3);line-height:1.75}
     .ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:16px;overflow:hidden;margin-bottom:0}
     @media(max-width:640px){.ind-grid{grid-template-columns:1fr 1fr}}
@@ -158,7 +163,7 @@
     .ind-tools{display:flex;flex-wrap:wrap;gap:.5rem}
     .ind-tool{background:#1e2130;border:1px solid #2d3044;border-radius:100px;padding:5px 14px;font-size:.82rem;color:#9aa0a6;font-family:'Roboto Mono',monospace;font-size:12px}
 
-    /* ── BIZ CARDS ── */
+    /* BIZ CARDS */
     .biz-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2.5rem}
     @media(max-width:600px){.biz-grid{grid-template-columns:1fr}}
     .bcard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color .2s,box-shadow .2s,transform .2s}
@@ -176,7 +181,7 @@
     .btn-white{background:#fff;color:var(--accent);border-radius:24px;padding:10px 24px;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0;transition:box-shadow .15s}
     .btn-white:hover{box-shadow:0 4px 16px rgba(0,0,0,.25)}
 
-    /* ── STEPS ── */
+    /* STEPS */
     .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2rem}
     @media(max-width:660px){.steps-grid{grid-template-columns:1fr}}
     .scard{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;position:relative;overflow:hidden;transition:border-color .2s,box-shadow .2s,transform .2s}
@@ -185,12 +190,12 @@
     .scard h3{font-size:.93rem;font-weight:600;margin-bottom:.4rem;position:relative}
     .scard p{font-size:.83rem;color:var(--text-3);line-height:1.7;position:relative}
 
-    /* ── CTA STRIP ── */
+    /* CTA STRIP */
     .cta-strip{background:var(--accent);border-radius:16px;padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;margin-top:2.5rem}
     .cta-strip h3{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.2rem}
     .cta-strip p{font-size:.88rem;color:rgba(255,255,255,.8)}
 
-    /* ── FAQ ── */
+    /* FAQ */
     .faq{margin-top:1.5rem;display:flex;flex-direction:column;gap:.5rem}
     .fitem{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface);transition:border-color .2s}
     .fitem.open{border-color:var(--accent)}
@@ -202,7 +207,7 @@
     .fa{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s ease;font-size:.88rem;color:var(--text-3);line-height:1.8;padding:0 1.25rem}
     .fitem.open .fa{max-height:300px;padding:.25rem 1.25rem 1.1rem}
 
-    /* ── ENGAGEMENT FLOW ── */
+    /* ENGAGEMENT FLOW */
     .engage-flow{padding:.5rem 0 .25rem;display:flex;flex-direction:column;gap:0}
     .ef-step{display:flex;align-items:flex-start;gap:1rem;padding:.75rem 0;cursor:pointer;border-radius:8px;padding:.75rem;margin:0 -.75rem;transition:background .15s}
     .ef-step:hover{background:var(--bg)}
@@ -216,13 +221,17 @@
     .ef-desc{font-size:.82rem;color:var(--text-3);line-height:1.6;max-height:0;overflow:hidden;transition:max-height .3s ease,opacity .3s ease;opacity:0}
     .ef-step.active .ef-desc{max-height:80px;opacity:1}
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer{background:var(--ink);padding:2.5rem 2rem}
     .fi{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
-    .fl{font-size:15px;font-weight:600;color:#fff;letter-spacing:.04em;font-family:'Roboto Mono',monospace}
-    footer p{font-size:.8rem;color:#3d4460;line-height:1.7}
+    .footer-left .fl{font-size:15px;font-weight:600;color:#fff;letter-spacing:.04em;font-family:'Roboto Mono',monospace;margin-bottom:.3rem}
+    .footer-left p{font-size:.8rem;color:#5f6368;line-height:1.7}
+    .footer-socials{display:flex;gap:.75rem;align-items:center}
+    .footer-social{display:flex;align-items:center;gap:8px;text-decoration:none;color:#9aa0a6;font-size:.82rem;font-weight:500;padding:8px 14px;border:1px solid #2d3044;border-radius:8px;transition:color .15s,border-color .15s,background .15s}
+    .footer-social:hover{color:#fff;border-color:#5f6368;background:#2d3044}
+    .footer-social svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
 
-    /* ── BACK TO TOP ── */
+    /* BACK TO TOP */
     .back-top{position:fixed;bottom:2rem;right:2rem;z-index:300;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px var(--accent-glow);opacity:0;transform:translateY(12px);transition:opacity .25s,transform .25s,background .15s;pointer-events:none}
     .back-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}
     .back-top:hover{background:var(--accent-dark)}
@@ -237,14 +246,24 @@
     <div class="logo-mark">V</div>
     <span class="logo-text">VECTOR</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#work">Projects</a></li>
-    <li><a href="#businesses">For Businesses</a></li>
-    <li><a href="#join">Students</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="mailto:vector@ccny.cuny.edu" class="nav-cta">Get Involved</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#businesses">For Businesses</a></li>
+      <li><a href="#join">Students</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nav-socials">
+      <a href="https://discord.gg/pNCvUb5AA" target="_blank" rel="noopener" class="nav-social" title="Discord">
+        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/vectorccny" target="_blank" rel="noopener" class="nav-social" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      </a>
+    </div>
+    <a href="mailto:vectorccny@gmail.com" class="nav-cta">Get Involved</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -252,7 +271,7 @@
   <div class="hero-glow"></div>
   <div class="hero-inner">
     <div class="hero-code">
-      <em>"Great engineers don't wait for perfect ideas. They find real problems and build what solves them." </em>
+      <em>"Great engineers don't wait for perfect ideas. They find real problems and build what solves them."</em>
     </div>
     <h1>Build <span id="hero-word" style="color:var(--accent)">real</span><br><span id="hero-title">useful software.</span></h1>
     <p class="hero-sub">VECTOR is a CCNY student-led organization building software for real users.</p>
@@ -286,13 +305,12 @@
     <span class="eyebrow ey-a reveal">What is VECTOR</span>
     <h2 class="h2 reveal">Beyond coursework. Into execution.</h2>
     <p class="lead reveal">VECTOR connects CCNY students with real clients who have real technical problems. Teams scope the project, build the software, and deliver something that works.</p>
-
     <div class="about-grid reveal">
       <div class="acell dark">
         <div class="dark-inner">
           <div>
             <div class="dark-quote">"The city doesn't care about your GPA.<br>It cares about what you <span>built.</span>"</div>
-            <div class="dark-attr">VECTOR · CCNY · </div>
+            <div class="dark-attr">VECTOR - CCNY</div>
           </div>
           <div class="dark-stat">
             <div class="ds-num">200K+</div>
@@ -304,7 +322,7 @@
       <div class="acell">
         <div class="ci ci-a">⚙</div>
         <h3>Client-oriented projects</h3>
-        <p>Teams build websites, dashboards, automations, and AI tools for businesses that actually need them — not hypothetical case studies.</p>
+        <p>Teams build websites, dashboards, automations, and AI tools for businesses that actually need them - not hypothetical case studies.</p>
       </div>
       <div class="acell">
         <div class="ci ci-t">◈</div>
@@ -319,7 +337,7 @@
       <div class="acell">
         <div class="ci ci-a">◉</div>
         <h3>NYC is the classroom</h3>
-        <p>Five boroughs. 200K+ small businesses. Most have no developer on staff and no budget for an agency — that's the gap VECTOR exists to fill.</p>
+        <p>Five boroughs. 200K+ small businesses. Most have no developer on staff and no budget for an agency - that's the gap VECTOR exists to fill.</p>
       </div>
     </div>
   </div>
@@ -330,8 +348,7 @@
   <div class="wrap">
     <span class="eyebrow ey-t reveal">The Work</span>
     <h2 class="h2 reveal">What VECTOR teams build</h2>
-    <p class="lead reveal">Projects are scoped for part-time student schedules. Each one ends with a working deliverable the client actually uses — and a portfolio piece the student can point to.</p>
-
+    <p class="lead reveal">Projects are scoped for part-time student schedules. Each one ends with a working deliverable the client actually uses - and a portfolio piece the student can point to.</p>
     <div class="tabs-wrap reveal">
       <div class="tab-bar">
         <button class="tab-btn on" data-tab="web">Web & Presence</button>
@@ -339,70 +356,22 @@
         <button class="tab-btn" data-tab="ops">Ops & Automation</button>
       </div>
       <div class="tab-panel on" id="tab-web">
-        <div class="pcard">
-          <div class="pmeta">2–3 weeks</div>
-          <h3>Business Website</h3>
-          <p>A clean, mobile-ready site with contact form, basic SEO, and a layout the client can manage themselves.</p>
-        </div>
-        <div class="pcard">
-          <div class="pmeta">2–4 weeks</div>
-          <h3>E-Commerce Store</h3>
-          <p>Shopify setup with products, payment, and automations for a local retailer ready to sell online.</p>
-        </div>
-        <div class="pcard">
-          <div class="pmeta">1–2 weeks</div>
-          <h3>Online Booking System</h3>
-          <p>Scheduling for salons, studios, or clinics — calendar integration, confirmations, no phone tag.</p>
-        </div>
-        <div class="pcard">
-          <div class="pmeta">1–2 weeks</div>
-          <h3>Email Marketing Setup</h3>
-          <p>Branded Mailchimp or Klaviyo templates, a welcome sequence, and a list that grows automatically.</p>
-        </div>
+        <div class="pcard"><div class="pmeta">2-3 weeks</div><h3>Business Website</h3><p>A clean, mobile-ready site with contact form, basic SEO, and a layout the client can manage themselves.</p></div>
+        <div class="pcard"><div class="pmeta">2-4 weeks</div><h3>E-Commerce Store</h3><p>Shopify setup with products, payment, and automations for a local retailer ready to sell online.</p></div>
+        <div class="pcard"><div class="pmeta">1-2 weeks</div><h3>Online Booking System</h3><p>Scheduling for salons, studios, or clinics - calendar integration, confirmations, no phone tag.</p></div>
+        <div class="pcard"><div class="pmeta">1-2 weeks</div><h3>Email Marketing Setup</h3><p>Branded Mailchimp or Klaviyo templates, a welcome sequence, and a list that grows automatically.</p></div>
       </div>
       <div class="tab-panel" id="tab-data">
-        <div class="pcard">
-          <div class="pmeta">2–3 weeks</div>
-          <h3>Business Dashboard</h3>
-          <p>Turn a client's spreadsheets into a live visual dashboard — sales, inventory, or key metrics at a glance.</p>
-        </div>
-        <div class="pcard">
-          <div class="pmeta">2–4 weeks</div>
-          <h3>AI Customer Chatbot</h3>
-          <p>An AI assistant embedded on a website to handle FAQs, bookings, and product questions 24/7.</p>
-        </div>
-        <div class="pcard">
-          <div class="pmeta">3–5 weeks</div>
-          <h3>Internal Admin Tool</h3>
-          <p>A custom staff portal or CRM — built with Retool, AppSmith, or a lightweight Flask + React app.</p>
-        </div>
-        <div class="pcard">
-          <div class="pmeta">2–3 weeks</div>
-          <h3>Automated Reporting</h3>
-          <p>Weekly or monthly reports delivered automatically — no manual work, no missed deadlines.</p>
-        </div>
+        <div class="pcard"><div class="pmeta">2-3 weeks</div><h3>Business Dashboard</h3><p>Turn a client's spreadsheets into a live visual dashboard - sales, inventory, or key metrics at a glance.</p></div>
+        <div class="pcard"><div class="pmeta">2-4 weeks</div><h3>AI Customer Chatbot</h3><p>An AI assistant embedded on a website to handle FAQs, bookings, and product questions 24/7.</p></div>
+        <div class="pcard"><div class="pmeta">3-5 weeks</div><h3>Internal Admin Tool</h3><p>A custom staff portal or CRM - built with Retool, AppSmith, or a lightweight Flask + React app.</p></div>
+        <div class="pcard"><div class="pmeta">2-3 weeks</div><h3>Automated Reporting</h3><p>Weekly or monthly reports delivered automatically - no manual work, no missed deadlines.</p></div>
       </div>
       <div class="tab-panel" id="tab-ops">
-        <div class="pcard">
-          <div class="pmeta">1–3 weeks</div>
-          <h3>Inventory Automation</h3>
-          <p>Connect Airtable or Notion to Zapier or Make — no more manual spreadsheet updates or data entry.</p>
-        </div>
-        <div class="pcard">
-          <div class="pmeta">1–2 weeks</div>
-          <h3>Workflow Digitization</h3>
-          <p>Replace paper forms and email chains with structured digital workflows — forms, approvals, notifications.</p>
-        </div>
-        <div class="pcard">
-          <div class="pmeta">2–4 weeks</div>
-          <h3>Document Automation</h3>
-          <p>Auto-generate contracts, invoices, or intake packets from templates. A major time-saver for service businesses.</p>
-        </div>
-        <div class="pcard">
-          <div class="pmeta">Ongoing</div>
-          <h3>Maintenance Retainer</h3>
-          <p>Monthly technical support for past clients — updates, bug fixes, small feature additions.</p>
-        </div>
+        <div class="pcard"><div class="pmeta">1-3 weeks</div><h3>Inventory Automation</h3><p>Connect Airtable or Notion to Zapier or Make - no more manual spreadsheet updates or data entry.</p></div>
+        <div class="pcard"><div class="pmeta">1-2 weeks</div><h3>Workflow Digitization</h3><p>Replace paper forms and email chains with structured digital workflows - forms, approvals, notifications.</p></div>
+        <div class="pcard"><div class="pmeta">2-4 weeks</div><h3>Document Automation</h3><p>Auto-generate contracts, invoices, or intake packets from templates. A major time-saver for service businesses.</p></div>
+        <div class="pcard"><div class="pmeta">Ongoing</div><h3>Maintenance Retainer</h3><p>Monthly technical support for past clients - updates, bug fixes, small feature additions.</p></div>
       </div>
     </div>
   </div>
@@ -413,36 +382,15 @@
   <div class="wrap">
     <span class="eyebrow ey-a reveal">How a project moves</span>
     <h2 class="h2 reveal">From problem to portfolio artifact</h2>
-    <p class="lead reveal">Every VECTOR project follows the same arc — leaving behind documentation, proof of work, and a deliverable both the client and student can point to.</p>
-
+    <p class="lead reveal">Every VECTOR project follows the same arc - leaving behind documentation, proof of work, and a deliverable both the client and student can point to.</p>
     <div class="pipeline reveal">
       <div class="pipe-bar"><div class="pipe-bar-fill" id="pipe-fill"></div></div>
       <div class="pipe-steps">
-        <div class="pstep">
-          <div class="pstep-num">01</div>
-          <h3>Problem intake</h3>
-          <p>Find a real operational pain point from a business, club, or local initiative.</p>
-        </div>
-        <div class="pstep">
-          <div class="pstep-num">02</div>
-          <h3>Scope sprint</h3>
-          <p>Define the smallest useful version and clarify exactly what is out of scope.</p>
-        </div>
-        <div class="pstep">
-          <div class="pstep-num">03</div>
-          <h3>Build team</h3>
-          <p>Match students across engineering, design, product, and client communication.</p>
-        </div>
-        <div class="pstep">
-          <div class="pstep-num">04</div>
-          <h3>Validate</h3>
-          <p>Test the workflow with users, fix gaps, verify it solves the stated problem.</p>
-        </div>
-        <div class="pstep">
-          <div class="pstep-num">05</div>
-          <h3>Artifact</h3>
-          <p>Case study, demo, and GitHub repo — documented, owned, and portfolio-ready.</p>
-        </div>
+        <div class="pstep"><div class="pstep-num">01</div><h3>Problem intake</h3><p>Find a real operational pain point from a business, club, or local initiative.</p></div>
+        <div class="pstep"><div class="pstep-num">02</div><h3>Scope sprint</h3><p>Define the smallest useful version and clarify exactly what is out of scope.</p></div>
+        <div class="pstep"><div class="pstep-num">03</div><h3>Build team</h3><p>Match students across engineering, design, product, and client communication.</p></div>
+        <div class="pstep"><div class="pstep-num">04</div><h3>Validate</h3><p>Test the workflow with users, fix gaps, verify it solves the stated problem.</p></div>
+        <div class="pstep"><div class="pstep-num">05</div><h3>Artifact</h3><p>Case study, demo, and GitHub repo - documented, owned, and portfolio-ready.</p></div>
       </div>
     </div>
   </div>
@@ -453,71 +401,29 @@
   <div class="wrap">
     <span class="eyebrow ey-m reveal">For Businesses</span>
     <h2 class="h2 reveal">What working with VECTOR looks like</h2>
-    <p class="lead reveal">VECTOR teams build focused, well-scoped software for NYC businesses. If you have a process that should be automated, data that should be visible, or a digital presence that doesn't exist yet — let's talk.</p>
-
+    <p class="lead reveal">VECTOR teams build focused, well-scoped software for NYC businesses. If you have a process that should be automated, data that should be visible, or a digital presence that doesn't exist yet - let's talk.</p>
     <p class="ind-intro reveal">Recognize your industry? Click to see what we typically build.</p>
-
     <div class="ind-grid reveal" id="ind-grid">
-      <div class="ind-card" data-ind="restaurants">
-        <span class="ind-tag">High demand</span>
-        <div class="ind-name">Restaurants & Hospitality</div>
-      </div>
-      <div class="ind-card" data-ind="retail">
-        <span class="ind-tag">High demand</span>
-        <div class="ind-name">Retail & E-Commerce</div>
-      </div>
-      <div class="ind-card" data-ind="healthcare">
-        <span class="ind-tag">189K NYC businesses</span>
-        <div class="ind-name">Healthcare Practices</div>
-      </div>
-      <div class="ind-card" data-ind="realestate">
-        <span class="ind-tag">190K NYC businesses</span>
-        <div class="ind-name">Real Estate & Property</div>
-      </div>
-      <div class="ind-card" data-ind="professional">
-        <span class="ind-tag">273K NYC businesses</span>
-        <div class="ind-name">Professional Services</div>
-      </div>
-      <div class="ind-card" data-ind="nonprofits">
-        <span class="ind-tag">Open to proposals</span>
-        <div class="ind-name">Nonprofits & Community Orgs</div>
-      </div>
+      <div class="ind-card" data-ind="restaurants"><span class="ind-tag">High demand</span><div class="ind-name">Restaurants & Hospitality</div></div>
+      <div class="ind-card" data-ind="retail"><span class="ind-tag">High demand</span><div class="ind-name">Retail & E-Commerce</div></div>
+      <div class="ind-card" data-ind="healthcare"><span class="ind-tag">189K NYC businesses</span><div class="ind-name">Healthcare Practices</div></div>
+      <div class="ind-card" data-ind="realestate"><span class="ind-tag">190K NYC businesses</span><div class="ind-name">Real Estate & Property</div></div>
+      <div class="ind-card" data-ind="professional"><span class="ind-tag">273K NYC businesses</span><div class="ind-name">Professional Services</div></div>
+      <div class="ind-card" data-ind="nonprofits"><span class="ind-tag">Open to proposals</span><div class="ind-name">Nonprofits & Community Orgs</div></div>
     </div>
-
     <div class="ind-detail-box" id="ind-detail">
       <h3 id="ind-detail-title"></h3>
       <div class="ind-tools" id="ind-detail-tools"></div>
     </div>
-
     <div class="biz-grid reveal" style="margin-top:2.5rem">
-      <div class="bcard featured">
-        <span class="bcard-label">The value proposition</span>
-        <h3>Serious technical talent at a fraction of agency cost</h3>
-        <p>VECTOR teams are CCNY students advised by faculty with industry experience. You get a clearly scoped project, a dedicated point of contact, and a finished deliverable.</p>
-      </div>
-      <div class="bcard">
-        <span class="bcard-label">Transparent scope</span>
-        <h3>You know exactly what you're getting</h3>
-        <p>Every project starts with a written scope document — deliverables, timeline, what's included, and what isn't.</p>
-      </div>
-      <div class="bcard">
-        <span class="bcard-label">Local and accountable</span>
-        <h3>A team in your city, not a contractor overseas</h3>
-        <p>VECTOR teams are based in New York City. They understand the market and are invested in the outcome because it goes in their portfolio.</p>
-      </div>
-      <div class="bcard">
-        <span class="bcard-label">Ongoing support</span>
-        <h3>We don't just hand it off and disappear</h3>
-        <p>Clients can stay on a monthly maintenance retainer for updates, fixes, and small additions.</p>
-      </div>
+      <div class="bcard featured"><span class="bcard-label">The value proposition</span><h3>Serious technical talent at a fraction of agency cost</h3><p>VECTOR teams are CCNY students advised by faculty with industry experience. You get a clearly scoped project, a dedicated point of contact, and a finished deliverable.</p></div>
+      <div class="bcard"><span class="bcard-label">Transparent scope</span><h3>You know exactly what you're getting</h3><p>Every project starts with a written scope document - deliverables, timeline, what's included, and what isn't.</p></div>
+      <div class="bcard"><span class="bcard-label">Local and accountable</span><h3>A team in your city, not a contractor overseas</h3><p>VECTOR teams are based in New York City. They understand the market and are invested in the outcome because it goes in their portfolio.</p></div>
+      <div class="bcard"><span class="bcard-label">Ongoing support</span><h3>We don't just hand it off and disappear</h3><p>Clients can stay on a monthly maintenance retainer for updates, fixes, and small additions.</p></div>
     </div>
-
     <div class="biz-cta reveal">
-      <div class="biz-cta-text">
-        <h3>Have a project in mind?</h3>
-        <p>Reach out and tell us what you're trying to solve. We'll scope it and get back to you within a few days.</p>
-      </div>
-      <a href="mailto:vector@ccny.cuny.edu" class="btn-white">Start a conversation →</a>
+      <div class="biz-cta-text"><h3>Have a project in mind?</h3><p>Reach out and tell us what you're trying to solve. We'll scope it and get back to you within a few days.</p></div>
+      <a href="mailto:vectorccny@gmail.com" class="btn-white">Start a conversation</a>
     </div>
   </div>
 </section>
@@ -527,32 +433,18 @@
   <div class="wrap">
     <span class="eyebrow ey-t reveal">For Students</span>
     <h2 class="h2 reveal">How joining works</h2>
-    <p class="lead reveal">Open to all CCNY students. </p>
-
+    <p class="lead reveal">Open to all CCNY students.</p>
     <div class="steps-grid">
-      <div class="scard reveal" style="transition-delay:.04s">
-        <div class="scard-n">01</div>
-        <h3>Come to a meeting</h3>
-        <p>See what's currently being built, meet the team, and find out what roles are open.</p>
-      </div>
-      <div class="scard reveal" style="transition-delay:.09s">
-        <div class="scard-n">02</div>
-        <h3>Find your role</h3>
-        <p>Developer, designer, business analyst, or client liaison — every project team has room for different skills and majors.</p>
-      </div>
-      <div class="scard reveal" style="transition-delay:.14s">
-        <div class="scard-n">03</div>
-        <h3>Deliver something real</h3>
-        <p>Work a live project, ship the deliverable, document your work, and walk away with a concrete portfolio piece.</p>
-      </div>
+      <div class="scard reveal" style="transition-delay:.04s"><div class="scard-n">01</div><h3>Come to a meeting</h3><p>See what's currently being built, meet the team, and find out what roles are open.</p></div>
+      <div class="scard reveal" style="transition-delay:.09s"><div class="scard-n">02</div><h3>Find your role</h3><p>Developer, designer, business analyst, or client liaison - every project team has room for different skills and majors.</p></div>
+      <div class="scard reveal" style="transition-delay:.14s"><div class="scard-n">03</div><h3>Deliver something real</h3><p>Work a live project, ship the deliverable, document your work, and walk away with a concrete portfolio piece.</p></div>
     </div>
-
     <div class="cta-strip reveal">
-      <div>
-        <h3>Ready to build with us?</h3>
-        <p>Reach out and we'll connect you with the right team and project.</p>
+      <div><h3>Ready to build with us?</h3><p>Join the Discord, follow us on Instagram, or reach out directly.</p></div>
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+        <a href="https://discord.gg/pNCvUb5AA" target="_blank" class="btn" style="background:#5865f2;color:#fff;border-radius:24px;padding:11px 22px;font-size:14px;font-weight:700;text-decoration:none">Join Discord</a>
+        <a href="mailto:vectorccny@gmail.com" class="btn" style="background:#fff;color:var(--accent);border-radius:24px;padding:11px 22px;font-size:14px;font-weight:700;text-decoration:none">Contact us</a>
       </div>
-      <a href="mailto:vector@ccny.cuny.edu" class="btn" style="background:#fff;color:var(--accent);border-radius:24px;padding:11px 26px;font-size:14px;font-weight:700;text-decoration:none;flex-shrink:0">Contact VECTOR →</a>
     </div>
   </div>
 </section>
@@ -565,38 +457,42 @@
     <div class="faq reveal">
       <div class="fitem">
         <button class="fq">Do I need prior experience to join?<span class="ficon">+</span></button>
-        <div class="fa">No. VECTOR is designed to be where you gain that experience. You'll work on a team — not solo — so your skills develop through the project itself.</div>
+        <div class="fa">No. VECTOR is designed to be where you gain that experience. You'll work on a team - not solo - so your skills develop through the project itself.</div>
       </div>
       <div class="fitem">
         <button class="fq">Is this only for CS or engineering students?<span class="ficon">+</span></button>
-        <div class="fa">Not at all. Business, design, architecture, pre-med, humanities — every major has a legitimate role. Non-technical students often identify the best problems, manage client relationships, and drive product decisions that technical students miss.</div>
+        <div class="fa">Not at all. Business, design, architecture, pre-med, humanities - every major has a legitimate role. Non-technical students often identify the best problems, manage client relationships, and drive product decisions that technical students miss.</div>
       </div>
       <div class="fitem">
         <button class="fq">Will I get paid for my work?<span class="ficon">+</span></button>
-        <div class="fa">Client projects generate real revenue. The goal is always that students are compensated for their time — not handed "experience" as currency. Exact structure depends on the project and team agreement.</div>
+        <div class="fa">Client projects generate real revenue. The goal is always that students are compensated for their time - not handed "experience" as currency. Exact structure depends on the project and team agreement.</div>
       </div>
       <div class="fitem">
         <button class="fq">How much time does it take per week?<span class="ficon">+</span></button>
-        <div class="fa">Typically 10–15 hours per week during an active project. Projects run 2–5 weeks. You take on more or less depending on your semester load.</div>
+        <div class="fa">Typically 10-15 hours per week during an active project. Projects run 2-5 weeks. You take on more or less depending on your semester load.</div>
       </div>
       <div class="fitem">
         <button class="fq">As a business, what's the engagement process?<span class="ficon">+</span></button>
         <div class="fa">
           <div class="engage-flow" id="engage-flow">
             <div class="ef-step active" data-step="0">
-              <div><div class="ef-num">01</div><div class="ef-title">You reach out</div><div class="ef-desc">Send us a quick description of the problem — what's manual, broken, or missing.</div></div>
+              <div class="ef-dot"></div>
+              <div><div class="ef-num">01</div><div class="ef-title">You reach out</div><div class="ef-desc">Send us a quick description of the problem - what's manual, broken, or missing.</div></div>
             </div>
             <div class="ef-connector"></div>
             <div class="ef-step" data-step="1">
+              <div class="ef-dot"></div>
               <div><div class="ef-num">02</div><div class="ef-title">We scope it together</div><div class="ef-desc">A short call to define deliverables, timeline, and what's in or out of scope. No surprises.</div></div>
             </div>
             <div class="ef-connector"></div>
             <div class="ef-step" data-step="2">
+              <div class="ef-dot"></div>
               <div><div class="ef-num">03</div><div class="ef-title">Team assembled</div><div class="ef-desc">We match the right students to your project. You get a dedicated point of contact throughout.</div></div>
             </div>
             <div class="ef-connector"></div>
             <div class="ef-step" data-step="3">
-              <div><div class="ef-num">04</div><div class="ef-title">Build & deliver</div><div class="ef-desc">We build, test, and hand off a working deliverable — documented and yours to keep.</div></div>
+              <div class="ef-dot"></div>
+              <div><div class="ef-num">04</div><div class="ef-title">Build and deliver</div><div class="ef-desc">We build, test, and hand off a working deliverable - documented and yours to keep.</div></div>
             </div>
           </div>
         </div>
@@ -608,11 +504,20 @@
 <!-- FOOTER -->
 <footer>
   <div class="fi">
-    <div>
-      <div class="fl">VECTOR — CCNY</div>
-      <p style="margin-top:.3rem">The City College of New York · Student-Led Technical Organization</p>
+    <div class="footer-left">
+      <div class="fl">VECTOR - CCNY</div>
+      <p style="margin-top:.3rem">The City College of New York - Student-Led Technical Organization</p>
     </div>
-    <p style="text-align:right">The City College of New York</p>
+    <div class="footer-socials">
+      <a href="https://discord.gg/pNCvUb5AA" target="_blank" rel="noopener" class="footer-social">
+        <svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        Discord
+      </a>
+      <a href="https://www.instagram.com/vectorccny" target="_blank" rel="noopener" class="footer-social">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        @vectorccny
+      </a>
+    </div>
   </div>
 </footer>
 
@@ -704,7 +609,7 @@
     });
   });
 
-  // ENGAGEMENT FLOW steps
+  // ENGAGEMENT FLOW
   document.querySelectorAll('.ef-step').forEach(step => {
     step.addEventListener('click', () => {
       document.querySelectorAll('.ef-step').forEach(s => s.classList.remove('active'));
